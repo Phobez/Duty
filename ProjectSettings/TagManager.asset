@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Hideable
+  - HideBehind
   layers:
   - Default
   - TransparentFX
@@ -38,6 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3064900071
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Hideable
+    uniqueID: 2458500463
+    locked: 0
+  - name: Foreground
+    uniqueID: 1743979951
     locked: 0

@@ -111,5 +111,10 @@ namespace UnityStandardAssets._2D
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+
+        public bool GetM_FacingRight()
+        {
+            return m_FacingRight;
+        }
     }
 }

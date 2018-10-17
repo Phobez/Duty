@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class ToolSelect : MonoBehaviour {
 
+    /*
+     * SKILLS:
+     * 1. DART
+     */
+    
+    private Vector2 currDir;
+
+    public byte darts = 3;
     private byte isSelected;
+
+    private bool isFacingRight;
+
+    private int enemyLayer;
 
 	// Use this for initialization
 	void Start() {
-
+        enemyLayer = LayerMask.GetMask("Enemy");
     }
 	
 	// Update is called once per frame
 	void Update () {
+        isFacingRight = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().GetM_FacingRight();
+
+        if (isFacingRight)
+        {
+            currDir = Vector2.right;
+        }
+        else
+        {
+            currDir = Vector2.left;
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -30,21 +52,7 @@ public class ToolSelect : MonoBehaviour {
         {
             SetIsSelected(4);
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            useTool();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            useTool();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            useTool();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
             useTool();
         }
@@ -55,7 +63,7 @@ public class ToolSelect : MonoBehaviour {
         switch (isSelected)
         {
             case 1:
-                Debug.Log("SKILL 1");
+                Skill1();
                 break;
             case 2:
                 Debug.Log("SKILL 2");
@@ -69,10 +77,22 @@ public class ToolSelect : MonoBehaviour {
         }
     }
 
+    void Skill1()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 3.0f, enemyLayer);
+
+        if (hit)
+        {
+            hit.transform.gameObject.GetComponent<Enemy>().SetCurrState((byte)3); // ASLEEP
+            darts--;
+        }
+    }
+
     public byte GetIsSelected()
     {
         return isSelected;
     }
+
     public void SetIsSelected(byte isSelected)
     {
         if (isSelected >= 1 && isSelected <= 4)

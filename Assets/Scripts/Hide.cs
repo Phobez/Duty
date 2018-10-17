@@ -6,7 +6,10 @@ public class Hide : MonoBehaviour {
 
     private SpriteRenderer sprRend;
 
+    private Vector2 currDir;
+
     private bool isHiding;
+    private bool isFacingRight;
 
     private int hideableLayer;
     
@@ -21,7 +24,53 @@ public class Hide : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        isFacingRight = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().GetM_FacingRight();
+
+        if (isFacingRight)
+        {
+            currDir = Vector2.right;
+        }
+        else
+        {
+            currDir = Vector2.left;
+        }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 1.0f, hideableLayer);
+
+        if (hit)
+        {
+            if (hit.transform.gameObject.tag == "Hideable")
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (isHiding)
+                    {
+                        sprRend.enabled = true;
+                        isHiding = false;
+                    }
+                    else
+                    {
+                        sprRend.enabled = false;
+                        isHiding = true;
+                    }
+                }
+            }
+            else if (hit.transform.gameObject.tag == "HideBehind")
+            {
+                isHiding = true;
+            }
+
+            if (isHiding)
+            {
+                Debug.Log("IS HIDING");
+            }
+            else
+            {
+                Debug.Log("NOT HIDING");
+            }
+        }
+
+        /*
         if (Input.GetKeyDown(KeyCode.E))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 1.0f, hideableLayer);
@@ -37,6 +86,7 @@ public class Hide : MonoBehaviour {
                 isHiding = false;
             }
         }
+        */
 
 	}
 
