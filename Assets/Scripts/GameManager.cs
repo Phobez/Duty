@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 
     public void Defeat()
     {
-        Debug.Log("Defeat!");
+        // Debug.Log("Defeat!");
     }
 
 

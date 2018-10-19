@@ -296,7 +296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &635293115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,6 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5655216ef1aae1243a6a8fd077db102e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  darts: 3
 --- !u!1 &1119217197
 GameObject:
   m_ObjectHideFlags: 0

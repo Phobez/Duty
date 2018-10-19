@@ -39,6 +39,7 @@ public class ToolSelect : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetIsSelected(1);
+            Debug.Log("Skill 1 selected!");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -80,9 +81,11 @@ public class ToolSelect : MonoBehaviour {
     void Skill1()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 3.0f, enemyLayer);
+        Debug.Log("Raycast shot!");
 
         if (hit)
         {
+            Debug.Log("Hit!");
             hit.transform.gameObject.GetComponent<Enemy>().SetCurrState((byte)3); // ASLEEP
             darts--;
         }

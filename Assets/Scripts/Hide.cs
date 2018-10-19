@@ -62,11 +62,11 @@ public class Hide : MonoBehaviour {
 
             if (isHiding)
             {
-                Debug.Log("IS HIDING");
+                // Debug.Log("IS HIDING");
             }
             else
             {
-                Debug.Log("NOT HIDING");
+                // Debug.Log("NOT HIDING");
             }
         }
 

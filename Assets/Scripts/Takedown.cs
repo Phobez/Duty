@@ -22,7 +22,7 @@ public class Takedown : MonoBehaviour {
 
             if(hit)
             {
-                Debug.Log("CHIYAA");
+                // Debug.Log("CHIYAA");
                 Destroy(hit.transform.gameObject);
                 isTakingDown = true;
             }

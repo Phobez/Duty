@@ -83,8 +83,8 @@ public class Enemy : MonoBehaviour {
             }
         }
 
-        Debug.Log(currState);
-	}
+        // Debug.Log(currState);
+    }
 
     void Move()
     {
