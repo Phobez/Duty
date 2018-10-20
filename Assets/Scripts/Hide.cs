@@ -59,34 +59,20 @@ public class Hide : MonoBehaviour {
             {
                 isHiding = true;
             }
-
-            if (isHiding)
-            {
-                // Debug.Log("IS HIDING");
-            }
-            else
-            {
-                // Debug.Log("NOT HIDING");
-            }
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.E))
+        else
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 1.0f, hideableLayer);
-
-            if (hit && !isHiding)
-            {
-                sprRend.enabled = false;
-                isHiding = true;
-            }
-            else if (hit && isHiding)
-            {
-                sprRend.enabled = true;
-                isHiding = false;
-            }
+            isHiding = false;
         }
-        */
+
+        if (GetIsHiding())
+        {
+            Debug.Log("Hiding!");
+        }
+        else
+        {
+            Debug.Log("Not hiding!");
+        }
 
 	}
 

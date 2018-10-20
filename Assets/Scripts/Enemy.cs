@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
     enum EnemyState : byte { PATROL, GUARD, CHASE, ASLEEP };
 
     public bool isStatic;
+    public bool faceRight = true;
     private bool isFacingRight;
 
     public GameManager gameManager;
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour {
             currState = (byte)EnemyState.PATROL;
         }
 
-        isFacingRight = true;
+        isFacingRight = faceRight;
 
         originPos = transform.position;
 
@@ -77,7 +78,7 @@ public class Enemy : MonoBehaviour {
                     SetCurrState((byte)EnemyState.CHASE);
                 }
             }
-            else
+            else if (currState != (byte)EnemyState.GUARD)
             {
                 SetCurrState((byte)EnemyState.PATROL);
             }
