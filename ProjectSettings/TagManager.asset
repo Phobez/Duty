@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Hideable
   - HideBehind
+  - Enemy
+  - Game Manager
   layers:
   - Default
   - TransparentFX
@@ -51,4 +53,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1743979951
+    locked: 0
+  - name: UI
+    uniqueID: 3489682507
     locked: 0

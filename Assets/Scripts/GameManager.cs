@@ -6,21 +6,40 @@ public class GameManager : MonoBehaviour {
 
     enum GameState : byte { PLAYING, VICTORY, DEFEAT, PAUSE }
 
-    byte currState;
+    public GameObject gameOverPanel;
 
-	// Use this for initialization
-	void Start () {
+    private byte currState;
+
+    private void Awake()
+    {
+        gameOverPanel.SetActive(false);
+    }
+
+    // Use this for initialization
+    void Start () {
         currState = (byte)GameState.PLAYING;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		switch (currState)
+        {
+            case (byte)GameState.DEFEAT:
+                Defeat();
+                break;
+        }
 	}
 
     public void Defeat()
     {
-        // Debug.Log("Defeat!");
+        gameOverPanel.SetActive(true);
+
+        Time.timeScale = 0.0f;
+    }
+
+    public void SetCurrState(byte currState)
+    {
+        this.currState = currState;
     }
 
 

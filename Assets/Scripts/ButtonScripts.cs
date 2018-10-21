@@ -7,11 +7,21 @@ public class ButtonScripts : MonoBehaviour {
 
     public void Play()
     {
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene("DemoLevel");
     }
 
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void TryAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
