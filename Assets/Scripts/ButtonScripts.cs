@@ -18,6 +18,7 @@ public class ButtonScripts : MonoBehaviour {
     public void TryAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
     }
 
     public void MainMenu()

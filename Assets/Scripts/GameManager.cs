@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     enum GameState : byte { PLAYING, VICTORY, DEFEAT, PAUSE }
 
     public GameObject gameOverPanel;
+    public GameObject player;
 
     private byte currState;
 
