@@ -15,14 +15,24 @@ public class ButtonScripts : MonoBehaviour {
         Application.Quit();
     }
 
+    public void Restart()
+    {
+        RespawnData.HasRestarted = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void TryAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1.0f;
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Continue()
+    {
+        gameObject.GetComponent<GameManager>().Unpause();
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class SearchLight : MonoBehaviour {
 
     public GameObject gameManager;
-    private GameObject[] enemies;
 
     private RaycastHit2D hit;
 
@@ -21,7 +20,6 @@ public class SearchLight : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         currDir = Vector2.down;
 
@@ -39,7 +37,7 @@ public class SearchLight : MonoBehaviour {
         {
             searchTimer -= Time.deltaTime;
 
-            Debug.DrawRay(transform.position, currDir, Color.red);
+            Debug.DrawRay(transform.position, currDir * 6.0f, Color.red);
             hit = Physics2D.Raycast(transform.position, currDir, 10.0f, playerLayer);
 
             if (hit)

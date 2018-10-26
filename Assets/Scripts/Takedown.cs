@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Takedown : MonoBehaviour {
 
-    private bool isTakingDown;
-
     private int enemyLayer;
 
 	// Use this for initialization
 	void Start () {
-        isTakingDown = false;
         enemyLayer = LayerMask.GetMask("Enemy");
 	}
 	
@@ -24,11 +21,10 @@ public class Takedown : MonoBehaviour {
             {
                 // Debug.Log("CHIYAA");
                 Destroy(hit.transform.gameObject);
-                isTakingDown = true;
             }
             else
             {
-                isTakingDown = false;
+
             }
         }
 	}

@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour {
     private byte currState;
 
     public float speed = 5.0f;
+    public float patrolOffset = 5.0f;
     public const float standTime = 3.0f;
     public const float patrolRange = 5.0f;
     public const float chaseRange = 7.5f;
@@ -82,6 +83,10 @@ public class Enemy : MonoBehaviour {
             {
                 SetCurrState((byte)EnemyState.PATROL);
             }
+            else if (currState == (byte)EnemyState.GUARD)
+            {
+                SetCurrState((byte)EnemyState.GUARD);
+            }
         }
 
         // Debug.Log(currState);
@@ -109,22 +114,13 @@ public class Enemy : MonoBehaviour {
                 Invoke("Patrol", 0.5f);
                 break;
             case (byte)EnemyState.GUARD:
+                currRange = patrolRange;
                 break;
             case (byte)EnemyState.CHASE:
                 currRange = chaseRange;
                 Invoke("Chase", 0.5f);
                 break;
             case (byte)EnemyState.ASLEEP:
-                break;
-            default:
-                if (isStatic)
-                {
-                    currState = (byte)EnemyState.GUARD;
-                }
-                else
-                {
-                    currState = (byte)EnemyState.PATROL;
-                }
                 break;
         }
     }
@@ -134,7 +130,8 @@ public class Enemy : MonoBehaviour {
     {
         Vector3 currPos = transform.position;
 
-        if (Mathf.Abs(currPos.x - originPos.x) >= 5.0f)
+        if (Mathf.Abs(currPos.x - originPos.x) >= patrolOffset
+            )
         {
             if (standTimer > 0)
             {
