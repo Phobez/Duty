@@ -14,9 +14,7 @@ public class SearchLight : MonoBehaviour {
     private int playerLayer;
 
     public float searchTime = 3.0f;
-    public float switchTime = 1.0f;
     private float searchTimer;
-    private float switchTimer;
 
     // Use this for initialization
     void Start () {
@@ -28,7 +26,6 @@ public class SearchLight : MonoBehaviour {
         playerLayer = LayerMask.GetMask("Player");
 
         searchTimer = searchTime;
-        switchTimer = switchTime;
 	}
 	
 	// Update is called once per frame
@@ -38,6 +35,7 @@ public class SearchLight : MonoBehaviour {
             searchTimer -= Time.deltaTime;
 
             Debug.DrawRay(transform.position, currDir * 6.0f, Color.red);
+            Debug.Log("RAY DRAWN");
             hit = Physics2D.Raycast(transform.position, currDir, 10.0f, playerLayer);
 
             if (hit)
@@ -45,16 +43,10 @@ public class SearchLight : MonoBehaviour {
                 gameManager.GetComponent<GameManager>().SetCurrState(2); // DEFEAT
             }
         }
-        else if (searchTimer <= 0 && switchTimer > 0)
+        else
         {
-            switchTimer -= Time.deltaTime;
-        }
-        else if (searchTimer <= 0 && switchTimer <= 0)
-        {
-            searchTimer = searchTime;
-            switchTimer = switchTime;
-
             SwitchDir();
+            searchTimer = searchTime;
         }
 	}
 

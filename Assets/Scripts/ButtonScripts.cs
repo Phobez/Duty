@@ -15,14 +15,14 @@ public class ButtonScripts : MonoBehaviour {
         Application.Quit();
     }
 
-    public void Restart()
+    public void RestartLevel()
     {
-        RespawnData.HasRestarted = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void TryAgain()
     {
+        RespawnData.HasRestarted = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

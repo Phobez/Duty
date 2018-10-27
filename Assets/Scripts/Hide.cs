@@ -7,9 +7,11 @@ public class Hide : MonoBehaviour {
     private SpriteRenderer sprRend;
 
     private Vector2 currDir;
+    private Vector3 hidePos;
 
     private bool isHiding;
     private bool isFacingRight;
+    private bool isHidingBehind;
 
     private int hideableLayer;
     
@@ -47,11 +49,14 @@ public class Hide : MonoBehaviour {
                     {
                         sprRend.enabled = true;
                         isHiding = false;
+                        isHidingBehind = false;
                     }
                     else
                     {
                         sprRend.enabled = false;
                         isHiding = true;
+                        isHidingBehind = true;
+                        hidePos = transform.position;
                     }
                 }
             }
@@ -65,16 +70,10 @@ public class Hide : MonoBehaviour {
             isHiding = false;
         }
 
-        /*
-        if (GetIsHiding())
+        if (isHidingBehind)
         {
-            Debug.Log("Hiding!");
+            transform.position = hidePos;
         }
-        else
-        {
-            Debug.Log("Not hiding!");
-        }
-        */
 
 	}
 

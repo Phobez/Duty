@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour {
             {
                 SetCurrState((byte)EnemyState.PATROL);
             }
-            else if (currState == (byte)EnemyState.GUARD)
+            else if (isStatic)
             {
                 SetCurrState((byte)EnemyState.GUARD);
             }
@@ -130,8 +130,7 @@ public class Enemy : MonoBehaviour {
     {
         Vector3 currPos = transform.position;
 
-        if (Mathf.Abs(currPos.x - originPos.x) >= patrolOffset
-            )
+        if (Mathf.Abs(currPos.x - originPos.x) >= patrolOffset)
         {
             if (standTimer > 0)
             {
@@ -154,7 +153,7 @@ public class Enemy : MonoBehaviour {
     {
         Vector3 currPos = transform.position;
 
-        if (Mathf.Abs(targetPos.x - currPos.x) <= 0.5f)
+        if (Mathf.Abs(targetPos.x - currPos.x) <= 0.5f && Mathf.Abs(targetPos.y - currPos.y) <= 0.5f)
         {
             gameManager.Defeat();
         }
@@ -174,6 +173,14 @@ public class Enemy : MonoBehaviour {
         else
         {
             SetCurrState((byte)EnemyState.PATROL);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (currState == (byte)EnemyState.CHASE)
+        {
+            gameManager.Defeat();
         }
     }
 
