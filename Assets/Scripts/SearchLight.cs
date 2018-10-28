@@ -5,9 +5,11 @@ using UnityEngine;
 public class SearchLight : MonoBehaviour {
 
     public GameObject gameManager;
+    public GameObject downLight;
+    public GameObject askewLight;
 
     private RaycastHit2D hit;
-
+    
     private Vector2 currDir;
 
     private int currDirFlag;
@@ -58,14 +60,20 @@ public class SearchLight : MonoBehaviour {
             case -1:
                 currDir = new Vector2(-0.5f, -0.5f);
                 transform.rotation = Quaternion.Euler(0, 0, -45f);
+                downLight.SetActive(false);
+                askewLight.SetActive(true);
                 break;
             case 0:
                 currDir = Vector2.down;
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                downLight.SetActive(true);
+                askewLight.SetActive(false);
                 break;
             case 1:
                 currDir = new Vector2(0.5f, -0.5f);
                 transform.rotation = Quaternion.Euler(0, 0, 45f);
+                downLight.SetActive(false);
+                askewLight.SetActive(true);
                 break;
         }
     }
