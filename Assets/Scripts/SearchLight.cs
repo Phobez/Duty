@@ -34,8 +34,7 @@ public class SearchLight : MonoBehaviour {
         {
             searchTimer -= Time.deltaTime;
 
-            Debug.DrawRay(transform.position, currDir * 6.0f, Color.red);
-            Debug.Log("RAY DRAWN");
+            // Debug.DrawRay(transform.position, currDir * 6.0f, Color.red);
             hit = Physics2D.Raycast(transform.position, currDir, 10.0f, playerLayer);
 
             if (hit)
@@ -58,12 +57,15 @@ public class SearchLight : MonoBehaviour {
         {
             case -1:
                 currDir = new Vector2(-0.5f, -0.5f);
+                transform.rotation = Quaternion.Euler(0, 0, -45f);
                 break;
             case 0:
                 currDir = Vector2.down;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
                 break;
             case 1:
                 currDir = new Vector2(0.5f, -0.5f);
+                transform.rotation = Quaternion.Euler(0, 0, 45f);
                 break;
         }
     }

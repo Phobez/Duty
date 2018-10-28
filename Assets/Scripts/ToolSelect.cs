@@ -8,7 +8,9 @@ public class ToolSelect : MonoBehaviour {
      * SKILLS:
      * 1. DART
      */
-    
+
+    private Animator anim;
+
     private Vector2 currDir;
 
     public byte darts = 3;
@@ -20,6 +22,8 @@ public class ToolSelect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
+        anim = GetComponent<Animator>();
+
         enemyLayer = LayerMask.GetMask("Enemy");
     }
 	
@@ -80,15 +84,15 @@ public class ToolSelect : MonoBehaviour {
 
     void Skill1()
     {
+        anim.SetBool("Dart", true);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 3.0f, enemyLayer);
-        Debug.Log("Raycast shot!");
 
         if (hit)
         {
-            Debug.Log("Hit!");
             hit.transform.gameObject.GetComponent<Enemy>().SetCurrState((byte)3); // ASLEEP
             darts--;
         }
+        anim.SetBool("Dart", false);
     }
 
     public byte GetIsSelected()

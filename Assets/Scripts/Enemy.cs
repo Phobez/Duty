@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour {
     public bool faceRight = true;
     private bool isFacingRight;
 
+    protected Animator anim;
+
+    protected SpriteRenderer sprRend;
+
     public GameManager gameManager;
 
     private RaycastHit2D hit;
@@ -50,6 +54,8 @@ public class Enemy : MonoBehaviour {
 
         standTimer = standTime;
 
+        anim = GetComponent<Animator>();
+        sprRend = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -57,10 +63,12 @@ public class Enemy : MonoBehaviour {
         if (isFacingRight)
         {
             currDir = Vector2.right;
+            sprRend.flipX = false;
         }
         else
         {
             currDir = Vector2.left;
+            sprRend.flipX = true;
         }
 
         if (currState != (byte)EnemyState.ASLEEP)
@@ -77,6 +85,7 @@ public class Enemy : MonoBehaviour {
                 if (!hide.GetIsHiding())
                 {
                     SetCurrState((byte)EnemyState.CHASE);
+                    anim.SetBool("Is Patrolling", false);
                 }
             }
             else if (currState != (byte)EnemyState.GUARD)
@@ -110,14 +119,11 @@ public class Enemy : MonoBehaviour {
         switch (currState)
         {
             case (byte)EnemyState.PATROL:
-                currRange = patrolRange;
                 Invoke("Patrol", 0.5f);
                 break;
             case (byte)EnemyState.GUARD:
-                currRange = patrolRange;
                 break;
             case (byte)EnemyState.CHASE:
-                currRange = chaseRange;
                 Invoke("Chase", 0.5f);
                 break;
             case (byte)EnemyState.ASLEEP:
@@ -135,10 +141,12 @@ public class Enemy : MonoBehaviour {
             if (standTimer > 0)
             {
                 standTimer -= Time.deltaTime;
+                anim.SetBool("Is Standing", true);
             }
             else
             {
                 isFacingRight = !isFacingRight; // change directions
+                anim.SetBool("Is Standing", false);
                 Move();
                 standTimer = standTime; // reset timer for next stand
             }
@@ -173,20 +181,34 @@ public class Enemy : MonoBehaviour {
         else
         {
             SetCurrState((byte)EnemyState.PATROL);
+            anim.SetBool("Is Chasing", false);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void ChangeState()
     {
-        if (currState == (byte)EnemyState.CHASE)
+        switch (currState)
         {
-            gameManager.Defeat();
+            case (byte)EnemyState.PATROL:
+                currRange = patrolRange;
+                anim.SetBool("Is Patrolling", true);
+                break;
+            case (byte)EnemyState.GUARD:
+                currRange = patrolRange;
+                break;
+            case (byte)EnemyState.CHASE:
+                anim.SetBool("Is Chasing", true);
+                currRange = chaseRange;
+                break;
+            case (byte)EnemyState.ASLEEP:
+                break;
         }
     }
 
     public void SetCurrState(byte currState)
     {
         this.currState = currState;
+        ChangeState();
     }
 
 }
