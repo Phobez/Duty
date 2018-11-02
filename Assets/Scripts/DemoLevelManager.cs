@@ -38,13 +38,16 @@ public class DemoLevelManager : MonoBehaviour {
             switch (currStage)
             {
                 case LevelStates.STAGE1:
+                    Debug.Log("STAGE 1");
                     GetComponentInParent<GameManager>().player.transform.position = Stage1Pos;
                     break;
                 case LevelStates.STAGE2:
+                    Debug.Log("STAGE 2");
                     Stage2();
                     GetComponentInParent<GameManager>().player.transform.position = Stage2Pos;
                     break;
                 case LevelStates.STAGE3:
+                    Debug.Log("STAGE 3");
                     Stage3();
                     GetComponentInParent<GameManager>().player.transform.position = Stage3Pos;
                     break;

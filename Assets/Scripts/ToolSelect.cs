@@ -89,7 +89,7 @@ public class ToolSelect : MonoBehaviour {
 
         if (hit)
         {
-            hit.transform.gameObject.GetComponent<Enemy>().SetCurrState((byte)3); // ASLEEP
+            // hit.transform.gameObject.GetComponent<EnemyAI>().CurrState(byte); // ASLEEP
             darts--;
         }
         anim.SetBool("Dart", false);
