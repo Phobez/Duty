@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour {
 
     private int playerLayer;
 
-    [SerializeField] private bool isFacingRight = true; // default value is facing right
+    public bool isFacingRight = true; // default value is facing right
 
 	// Use this for initialization
 	void Start () {
