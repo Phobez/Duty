@@ -208,7 +208,13 @@ public class EnemyAI : MonoBehaviour {
 
         if (tempHit)
         {
-            if (!tempHit.transform.gameObject.GetComponent<Hide>().GetIsHiding())
+            // if enemy is chasing, hiding will not save player
+            if (currState == EnemyState.CHASE)
+            {
+                hit = tempHit;
+                return true;
+            }
+            else if (!tempHit.transform.gameObject.GetComponent<Hide>().GetIsHiding())
             {
                 hit = tempHit;
                 return true;

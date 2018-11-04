@@ -13,7 +13,7 @@ public class ToolSelect : MonoBehaviour {
 
     private Vector2 currDir;
 
-    public byte darts = 3;
+    public byte darts = 1;
     private byte isSelected;
 
     private bool isFacingRight;
@@ -25,6 +25,8 @@ public class ToolSelect : MonoBehaviour {
         anim = GetComponent<Animator>();
 
         enemyLayer = LayerMask.GetMask("Enemy");
+
+        SetIsSelected(1);
     }
 	
 	// Update is called once per frame
@@ -89,7 +91,8 @@ public class ToolSelect : MonoBehaviour {
 
         if (hit)
         {
-            // hit.transform.gameObject.GetComponent<EnemyAI>().CurrState(byte); // ASLEEP
+            EnemyAI enemy = hit.transform.gameObject.GetComponent<EnemyAI>();
+            enemy.CurrState = EnemyAI.EnemyState.ASLEEP;
             darts--;
         }
         anim.SetBool("Dart", false);
@@ -109,6 +112,15 @@ public class ToolSelect : MonoBehaviour {
         else
         {
             Debug.Log("CANNOT SET IS SELECTED: INVALID INPUT");
+        }
+    }
+
+    /////// PROPERTIES ///////
+    public byte Darts
+    {
+        get
+        {
+            return darts;
         }
     }
 }

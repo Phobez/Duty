@@ -76,4 +76,13 @@ public class Takedown : MonoBehaviour {
 
         return false;
     }
+
+    /////// PROPERTIES ///////
+    public bool HasTakendown
+    {
+        get
+        {
+            return hasTakendown;
+        }
+    }
 }
