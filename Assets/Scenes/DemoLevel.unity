@@ -3870,6 +3870,11 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114156130129242250, guid: 8ec70a15353bacb4a8886d68a348cd80,
+        type: 2}
+      propertyPath: Stage3Pos.x
+      value: 121.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8ec70a15353bacb4a8886d68a348cd80, type: 2}
@@ -8575,7 +8580,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1580456237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 129.15, y: 0, z: 0}
+  m_LocalPosition: {x: 120.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 1710995062}
