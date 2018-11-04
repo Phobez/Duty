@@ -9,6 +9,7 @@ public class ButtonScripts : MonoBehaviour {
 
     public void Play()
     {
+        GameManager.Instance.Playing(true);
         SceneManager.LoadScene("DemoLevel");
     }
 
@@ -19,27 +20,27 @@ public class ButtonScripts : MonoBehaviour {
 
     public void RestartLevel()
     {
-        Time.timeScale = 1.0f;
+        GameManager.Instance.Playing(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void TryAgain()
     {
         RespawnData.HasRestarted = true;
-        Time.timeScale = 1.0f;
+        Debug.Log("Try Again: " + RespawnData.HasRestarted);
+        GameManager.Instance.Playing(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()
     {
-        Time.timeScale = 1.0f;
+        GameManager.Instance.Playing(true);
         SceneManager.LoadScene("MainMenu");
     }
 
     public void Continue()
     {
-        Time.timeScale = 1.0f;
-        gameObject.GetComponent<GameManager>().Unpause();
+        GameManager.Instance.Pause(false);
     }
 
     public void HowToPlay()

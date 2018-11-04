@@ -2,79 +2,97 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager {
 
-    enum GameState : byte { PLAYING, VICTORY, DEFEAT }
+    public enum GameState : byte { PLAYING, VICTORY, DEFEAT, PAUSED }
 
-    public GameObject gameOverPanel;
-    public GameObject pausePanel;
-    public GameObject victoryPanel;
-    public GameObject player;
+    private static GameManager instance;
 
-    private byte currState;
+    private GameState currGameState;
 
-    private void Awake()
+    private GameManager()
     {
-        gameOverPanel.SetActive(false);
-        pausePanel.SetActive(false);
-        victoryPanel.SetActive(false);
+        CurrGameState = GameState.PLAYING;
     }
 
-    // Use this for initialization
-    void Start () {
-        currState = (byte)GameState.PLAYING;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape))
+    // a method to handle victory
+    public void Victory(bool hasWon)
+    {
+        if (hasWon)
         {
-            Pause();
+            CurrGameState = GameState.VICTORY;
+            Time.timeScale = 0.0f;
         }
-
-		switch (currState)
+        else
         {
-            case (byte)GameState.DEFEAT:
-                Defeat();
-                break;
-            case (byte)GameState.VICTORY:
-                Victory();
-                break;
+            CurrGameState = GameState.PLAYING;
+            Time.timeScale = 1.0f;
         }
-	}
-
-    public void Defeat()
-    {
-        gameOverPanel.SetActive(true);
-
-        Time.timeScale = 0.0f;
     }
 
-    public void Victory()
+    // a method to handle defeat
+    public void Defeat(bool defeated)
     {
-        victoryPanel.SetActive(true);
-
-        Time.timeScale = 0.0f;
+        if (defeated)
+        {
+            CurrGameState = GameState.DEFEAT;
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            CurrGameState = GameState.PLAYING;
+            Time.timeScale = 1.0f;
+        }
     }
 
-    public void Pause()
+    // a method to handle pausing
+    public void Pause(bool paused)
     {
-        pausePanel.SetActive(true);
-
-        Time.timeScale = 0.0f;
+        if (paused)
+        {
+            CurrGameState = GameState.PAUSED;
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            CurrGameState = GameState.PLAYING;
+            Time.timeScale = 1.0f;
+        }
     }
 
-    public void Unpause()
+    // a method to reset game state
+    public void Playing(bool playing)
     {
-        pausePanel.SetActive(false);
-
-        Time.timeScale = 1.0f;
+        if (playing)
+        {
+            CurrGameState = GameState.PLAYING;
+            Time.timeScale = 1.0f;
+        }
     }
 
-    public void SetCurrState(byte currState)
+    /////// PROPERTIES ///////
+    public static GameManager Instance
     {
-        this.currState = currState;
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GameManager();
+            }
+
+            return instance;
+        }
     }
 
-
+    public GameState CurrGameState
+    {
+        get
+        {
+            return currGameState;
+        }
+        set
+        {
+            this.currGameState = value;
+        }
+    }
 }

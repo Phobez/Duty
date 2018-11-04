@@ -9,6 +9,8 @@ public class CameraMovement : MonoBehaviour {
     private Vector3 playerPos;
     private Vector3 cameraPos;
 
+    public float offset = 1.0f;
+
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -17,7 +19,7 @@ public class CameraMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         playerPos = player.transform.position;
-        cameraPos = new Vector3(playerPos.x, playerPos.y, -10);
+        cameraPos = new Vector3(playerPos.x + offset, playerPos.y, -10);
 
         transform.position = cameraPos;
 	}

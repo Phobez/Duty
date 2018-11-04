@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SearchLight : MonoBehaviour {
 
-    public GameObject gameManager;
     public GameObject downLight;
     public GameObject askewLight;
 
@@ -41,7 +40,7 @@ public class SearchLight : MonoBehaviour {
 
             if (hit)
             {
-                gameManager.GetComponent<GameManager>().SetCurrState(2); // DEFEAT
+                GameManager.Instance.Defeat(true);
             }
         }
         else

@@ -37,7 +37,7 @@ public class Hide : MonoBehaviour {
             currDir = Vector2.left;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 1.0f, hideableLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 0.1f, hideableLayer);
 
         if (hit)
         {

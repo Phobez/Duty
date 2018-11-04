@@ -4,8 +4,8 @@ using UnityEngine;
 
 public static class RespawnData {
 
-    private static byte currStage = (byte)1;
-    private static bool hasRestarted = false;
+    private static byte currStage;
+    private static bool hasRestarted;
 
     public static byte CurrStage
     {
@@ -15,7 +15,7 @@ public static class RespawnData {
         }
         set
         {
-            currStage = CurrStage;
+            currStage = value;
         }
     }
 
@@ -27,7 +27,8 @@ public static class RespawnData {
         }
         set
         {
-            hasRestarted = HasRestarted;
+            Debug.Log("Has Restarted value modified");
+            hasRestarted = value;
         }
     }
 }

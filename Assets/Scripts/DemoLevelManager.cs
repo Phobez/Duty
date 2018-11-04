@@ -12,55 +12,86 @@ public class DemoLevelManager : MonoBehaviour {
     public Vector3 Stage2Pos;
     public Vector3 Stage3Pos;
 
+    private GameObject player;
+
     private enum LevelStates : byte {
         STAGE1 = 1,
         STAGE2,
         STAGE3
     };
 
-    [SerializeField] private LevelStates currStage = LevelStates.STAGE1;
+    [SerializeField] private LevelStates currStage;
 
     private bool hasChanged = false;
     private bool hasKey = false;
+    private bool hasFakeKey = false;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
+        Debug.Log("Demo Level: " + RespawnData.HasRestarted);
+        Debug.Log("Demo Level: " + RespawnData.CurrStage);
+
+        Physics2D.IgnoreLayerCollision(8, 10);
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
         if (RespawnData.HasRestarted == true)
         {
             currStage = (LevelStates) RespawnData.CurrStage;
+            switch (currStage)
+            {
+                case LevelStates.STAGE1:
+                    Debug.Log("STAGE 1");
+                    player.transform.position = Stage1Pos;
+                    break;
+                case LevelStates.STAGE2:
+                    Debug.Log("STAGE 2");
+                    Stage2();
+                    player.transform.position = Stage2Pos;
+                    break;
+                case LevelStates.STAGE3:
+                    Debug.Log("STAGE 3");
+                    Stage3();
+                    player.transform.position = Stage3Pos;
+                    break;
+            }
+
+            RespawnData.HasRestarted = false;
+        }
+        else
+        {
+            currStage = LevelStates.STAGE1;
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (hasChanged == true || RespawnData.HasRestarted == true)
+		if (hasChanged == true)
         {
             switch (currStage)
             {
                 case LevelStates.STAGE1:
                     Debug.Log("STAGE 1");
-                    GetComponentInParent<GameManager>().player.transform.position = Stage1Pos;
+                    player.transform.position = Stage1Pos;
                     break;
                 case LevelStates.STAGE2:
                     Debug.Log("STAGE 2");
                     Stage2();
-                    GetComponentInParent<GameManager>().player.transform.position = Stage2Pos;
+                    player.transform.position = Stage2Pos;
                     break;
                 case LevelStates.STAGE3:
                     Debug.Log("STAGE 3");
                     Stage3();
-                    GetComponentInParent<GameManager>().player.transform.position = Stage3Pos;
+                    player.transform.position = Stage3Pos;
                     break;
             }
 
             hasChanged = false;
-            RespawnData.HasRestarted = false;
         }
 	}
 
     void Stage2()
     {
-        Debug.Log("Called!");
         Stage2Panel.SetActive(true);
     }
 
@@ -91,5 +122,15 @@ public class DemoLevelManager : MonoBehaviour {
     public bool GetHasKey()
     {
         return hasKey;
+    }
+
+    public void SetHasFakeKey(bool hasFakeKey)
+    {
+        this.hasFakeKey = hasFakeKey;
+    }
+
+    public bool GetHasFakeKey()
+    {
+        return hasFakeKey;
     }
 }

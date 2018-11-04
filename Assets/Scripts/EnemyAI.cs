@@ -122,12 +122,14 @@ public class EnemyAI : MonoBehaviour {
             if (patrolStandTimer > 0)
             {
                 patrolStandTimer -= Time.deltaTime;
+                anim.SetBool("Is Standing", true);
             }
             else
             {
                 patrolStandTimer = patrolStandTime;
                 originPos = transform.position;
                 isFacingRight = !isFacingRight; // change direction
+                anim.SetBool("Is Standing", false);
                 Move();
             }
         }
@@ -160,7 +162,14 @@ public class EnemyAI : MonoBehaviour {
     // a method for enemy chase
     private void Chase()
     {
-        if (hit)
+        if (!FoundPlayer())
+        {
+            CurrState = initialState;
+            anim.SetBool("Is Chasing", false);
+            Physics2D.IgnoreLayerCollision(8, 10);
+            return;
+        }
+        else
         {
             Vector3 currPos = transform.position;
             Vector3 targetPos = hit.transform.position;
@@ -176,14 +185,9 @@ public class EnemyAI : MonoBehaviour {
                     isFacingRight = true;
                 }
 
+                anim.SetBool("Is Chasing", true);
                 Move();
             }
-        }
-        else
-        {
-            CurrState = initialState;
-            Physics2D.IgnoreLayerCollision(8, 10, true);
-            return;
         }
     }
 
@@ -234,8 +238,7 @@ public class EnemyAI : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            // Set game state to DEFEAT in GAME MANAGER
-            Debug.Log("DEFEAT!");
+            GameManager.Instance.Defeat(true);
         }
     }
 

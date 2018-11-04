@@ -6,6 +6,7 @@ public class Prison : MonoBehaviour, IInteractable<GameObject> {
 
     public GameObject gameManager;
     public GameObject noKeyPanel;
+    public GameObject fakeKeyPanel;
 
     private DemoLevelManager demoLevelManager;
 
@@ -18,7 +19,11 @@ public class Prison : MonoBehaviour, IInteractable<GameObject> {
     {
         if (demoLevelManager.GetHasKey() == true)
         {
-            gameManager.GetComponent<GameManager>().SetCurrState((byte)1);
+            GameManager.Instance.Victory(true);
+        }
+        else if (demoLevelManager.GetHasFakeKey() == true)
+        {
+            fakeKeyPanel.SetActive(true);
         }
         else
         {
