@@ -179,7 +179,7 @@ MonoBehaviour:
   initialState: 0
   patrolType: 2
   patrolStandTime: 3
-  speed: 5
+  speed: 4
   patrolOffset: 5
   patrolRange: 5
   chaseRange: 7

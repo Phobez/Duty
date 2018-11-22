@@ -10,6 +10,7 @@ public class ButtonScripts : MonoBehaviour {
     public void Play()
     {
         GameManager.Instance.Playing(true);
+        RespawnData.Reset();
         SceneManager.LoadScene("DemoLevel");
     }
 
@@ -21,6 +22,7 @@ public class ButtonScripts : MonoBehaviour {
     public void RestartLevel()
     {
         GameManager.Instance.Playing(true);
+        RespawnData.Reset();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -35,6 +37,7 @@ public class ButtonScripts : MonoBehaviour {
     public void MainMenu()
     {
         GameManager.Instance.Playing(true);
+        RespawnData.Reset();
         SceneManager.LoadScene("MainMenu");
     }
 

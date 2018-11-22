@@ -19,6 +19,12 @@ public static class RespawnData {
         }
     }
 
+    public static void Reset()
+    {
+        CurrStage = (byte)1;
+    }
+
+    /////// PROPERTIES ///////
     public static bool HasRestarted
     {
         get

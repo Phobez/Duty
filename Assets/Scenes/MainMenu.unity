@@ -203,11 +203,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1350769102}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320, y: -174}
+  m_AnchoredPosition: {x: -315, y: -181}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206875330
@@ -242,7 +242,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Prototype 1.0.3
+  m_Text: Prototype 1.0.4
 --- !u!222 &206875331
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -688,7 +688,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 170, y: -127}
+  m_AnchoredPosition: {x: 170, y: -145}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165303948
@@ -865,9 +865,9 @@ RectTransform:
   - {fileID: 1972598865}
   - {fileID: 793430998}
   - {fileID: 1529054402}
-  - {fileID: 1482329810}
   - {fileID: 2078944056}
   - {fileID: 206875329}
+  - {fileID: 1482329810}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -907,7 +907,7 @@ RectTransform:
   - {fileID: 1761459383}
   - {fileID: 1165303947}
   m_Father: {fileID: 1350769102}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1104,7 +1104,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -8}
-  m_SizeDelta: {x: 500, y: 200}
+  m_SizeDelta: {x: 500, y: 225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1761459384
 MonoBehaviour:
@@ -1148,7 +1148,12 @@ MonoBehaviour:
 
     - When at an objective, press E
 
-    C to takedown enemies
+    C to takedown enemies. You can only take down enemies when you''re behind them
+    and there''s a cooldown. When you can take down there''s a grey backgroud on the
+    knife.
+
+    If you''re hidden the eye on the top left is closed, if you''re visible it''s
+    open.
 
 
     Your objective is to get to the red prison at the end of the level. You will need
@@ -1304,7 +1309,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Back
 --- !u!222 &1796112763
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1463,7 +1468,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1350769102}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
