@@ -214,7 +214,7 @@ public class EnemyAI : MonoBehaviour {
                 hit = tempHit;
                 return true;
             }
-            else if (!tempHit.transform.gameObject.GetComponent<Hide>().GetIsHiding())
+            else if (!tempHit.transform.gameObject.GetComponent<Hide>().IsHiding)
             {
                 hit = tempHit;
                 return true;

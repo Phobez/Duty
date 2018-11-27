@@ -12,6 +12,7 @@ public class Hide : MonoBehaviour {
     private bool isHiding;
     private bool isFacingRight;
     private bool isHidingBehind;
+    private bool isCloaked;
 
     private int hideableLayer;
     
@@ -39,7 +40,12 @@ public class Hide : MonoBehaviour {
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 0.1f, hideableLayer);
 
-        if (hit)
+        if (IsCloaked)
+        {
+            IsHiding = true;
+        }
+
+        if (hit && !IsCloaked)
         {
             if (hit.transform.gameObject.tag == "Hideable")
             {
@@ -65,7 +71,7 @@ public class Hide : MonoBehaviour {
                 isHiding = true;
             }
         }
-        else
+        else if (!IsCloaked)
         {
             isHiding = false;
         }
@@ -77,8 +83,28 @@ public class Hide : MonoBehaviour {
 
 	}
 
-    public bool GetIsHiding()
+    /////// PROPERTIES ///////
+    public bool IsHiding
     {
-        return isHiding;
+        get
+        {
+            return isHiding;
+        }
+        set
+        {
+            isHiding = value;
+        }
+    }
+
+    public bool IsCloaked
+    {
+        get
+        {
+            return isCloaked;
+        }
+        set
+        {
+            isCloaked = value;
+        }
     }
 }

@@ -2015,67 +2015,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 212422152554496126, guid: a3388c0edc106b74db71d8de22527c8f,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c626c273349214049af7dbcdb5b02c24,
-        type: 3}
-    - target: {fileID: 212422152554496126, guid: a3388c0edc106b74db71d8de22527c8f,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 212422152554496126, guid: a3388c0edc106b74db71d8de22527c8f,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 212422152554496126, guid: a3388c0edc106b74db71d8de22527c8f,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4591570290488366, guid: a3388c0edc106b74db71d8de22527c8f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4591570290488366, guid: a3388c0edc106b74db71d8de22527c8f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 95374950452087312, guid: a3388c0edc106b74db71d8de22527c8f,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1a76261147e18564698dab908024bcb5, type: 2}
-    - target: {fileID: 212422152554496126, guid: a3388c0edc106b74db71d8de22527c8f,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1287307173
-      objectReference: {fileID: 0}
-    - target: {fileID: 212422152554496126, guid: a3388c0edc106b74db71d8de22527c8f,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114479326389169038, guid: a3388c0edc106b74db71d8de22527c8f,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114323161102766368, guid: a3388c0edc106b74db71d8de22527c8f,
-        type: 2}
-      propertyPath: m_WhatIsGround.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
     - target: {fileID: 114859394707149786, guid: a3388c0edc106b74db71d8de22527c8f,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 70894832012071240, guid: a3388c0edc106b74db71d8de22527c8f, type: 2}
+    - target: {fileID: 114859394707149786, guid: a3388c0edc106b74db71d8de22527c8f,
+        type: 2}
+      propertyPath: cloakTime
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3388c0edc106b74db71d8de22527c8f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &482924175
@@ -6765,21 +6715,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1171582466676002, guid: a3388c0edc106b74db71d8de22527c8f,
     type: 2}
   m_PrefabInternal: {fileID: 482851949}
---- !u!70 &1273413350
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1273413342}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.04869318, y: -0.015111685}
-  m_Size: {x: 0.1487341, y: 0.46873426}
-  m_Direction: 0
 --- !u!1 &1288048811
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,16 +7,25 @@ public class ToolSelect : MonoBehaviour {
     /*
      * SKILLS:
      * 1. DART
+     * 2. CLOAKING DEVICE
      */
 
     private Animator anim;
 
+    private SpriteRenderer sprRend;
+
+    private Hide hide;
+
     private Vector2 currDir;
+
+    public float cloakTime;
+    private float cloakTimer;
 
     public byte darts = 1;
     private byte isSelected;
 
     private bool isFacingRight;
+    private bool hasUsedCloakingDevice;
 
     private int enemyLayer;
 
@@ -24,7 +33,15 @@ public class ToolSelect : MonoBehaviour {
 	void Start() {
         anim = GetComponent<Animator>();
 
+        sprRend = GetComponent<SpriteRenderer>();
+
+        hide = GetComponent<Hide>();
+
         enemyLayer = LayerMask.GetMask("Enemy");
+
+        cloakTimer = cloakTime;
+
+        hasUsedCloakingDevice = false;
 
         SetIsSelected(1);
     }
@@ -50,18 +67,26 @@ public class ToolSelect : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SetIsSelected(2);
+            Debug.Log("Skill 2 selected!");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             SetIsSelected(3);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SetIsSelected(4);
-        }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             useTool();
+        }
+
+        if (hasUsedCloakingDevice && cloakTimer > 0)
+        {
+            cloakTimer -= Time.deltaTime;
+        }
+        else if (hasUsedCloakingDevice && cloakTimer <= 0)
+        {
+            sprRend.enabled = true;
+            hide.IsCloaked = false;
+            cloakTimer = 0;
         }
     }
 
@@ -73,13 +98,10 @@ public class ToolSelect : MonoBehaviour {
                 Skill1();
                 break;
             case 2:
-                Debug.Log("SKILL 2");
+                Skill2();
                 break;
             case 3:
                 Debug.Log("SKILL 3");
-                break;
-            case 4:
-                Debug.Log("SKILL 4");
                 break;
         }
     }
@@ -89,13 +111,23 @@ public class ToolSelect : MonoBehaviour {
         anim.SetBool("Dart", true);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 3.0f, enemyLayer);
 
-        if (hit)
+        if (hit && darts > 0)
         {
             EnemyAI enemy = hit.transform.gameObject.GetComponent<EnemyAI>();
             enemy.CurrState = EnemyAI.EnemyState.ASLEEP;
             darts--;
         }
         anim.SetBool("Dart", false);
+    }
+
+    void Skill2()
+    {
+        if (!hasUsedCloakingDevice)
+        {
+            sprRend.enabled = false;
+            hide.IsCloaked = true;
+            hasUsedCloakingDevice = true;
+        }
     }
 
     public byte GetIsSelected()

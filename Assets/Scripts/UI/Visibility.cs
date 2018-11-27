@@ -21,7 +21,7 @@ public class Visibility : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (player.GetIsHiding())
+		if (player.IsHiding)
         {
             img.sprite = invisible;
         }

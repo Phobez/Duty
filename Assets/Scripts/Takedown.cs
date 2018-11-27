@@ -27,7 +27,7 @@ public class Takedown : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         isFacingRight = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().GetM_FacingRight();
-        isHiding = GetComponent<Hide>().GetIsHiding();
+        isHiding = GetComponent<Hide>().IsHiding;
 
         if (isFacingRight)
         {
