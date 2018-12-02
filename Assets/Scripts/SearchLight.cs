@@ -17,6 +17,8 @@ public class SearchLight : MonoBehaviour {
     public float searchTime = 3.0f;
     private float searchTimer;
 
+    private bool hasHit;
+
     // Use this for initialization
     void Start () {
 
@@ -27,6 +29,8 @@ public class SearchLight : MonoBehaviour {
         playerLayer = LayerMask.GetMask("Player");
 
         searchTimer = searchTime;
+
+        hasHit = false;
 	}
 	
 	// Update is called once per frame
@@ -38,8 +42,9 @@ public class SearchLight : MonoBehaviour {
             // Debug.DrawRay(transform.position, currDir * 6.0f, Color.red);
             hit = Physics2D.Raycast(transform.position, currDir, 10.0f, playerLayer);
 
-            if (hit)
+            if (hit && !hasHit)
             {
+                hasHit = true;
                 GameManager.Instance.Defeat(true);
             }
         }

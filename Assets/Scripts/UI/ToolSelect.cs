@@ -19,7 +19,9 @@ public class ToolSelect : MonoBehaviour {
     private Vector2 currDir;
 
     public float cloakTime;
+    public float cloakedMaxSpeed;
     private float cloakTimer;
+    private float initialMaxSpeed;
 
     public byte darts = 1;
     private byte isSelected;
@@ -48,7 +50,7 @@ public class ToolSelect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        isFacingRight = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().GetM_FacingRight();
+        isFacingRight = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().M_FacingRight;
 
         if (isFacingRight)
         {
@@ -76,17 +78,6 @@ public class ToolSelect : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             useTool();
-        }
-
-        if (hasUsedCloakingDevice && cloakTimer > 0)
-        {
-            cloakTimer -= Time.deltaTime;
-        }
-        else if (hasUsedCloakingDevice && cloakTimer <= 0)
-        {
-            sprRend.enabled = true;
-            hide.IsCloaked = false;
-            cloakTimer = 0;
         }
     }
 
@@ -124,10 +115,51 @@ public class ToolSelect : MonoBehaviour {
     {
         if (!hasUsedCloakingDevice)
         {
-            sprRend.enabled = false;
+            Color tempColor = sprRend.color;
+            tempColor.a = 0.5f;
+            sprRend.color = tempColor;
+
             hide.IsCloaked = true;
             hasUsedCloakingDevice = true;
+            initialMaxSpeed = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().M_MaxSpeed;
+            GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().M_MaxSpeed = cloakedMaxSpeed;
+
+            StartCoroutine(CTimeCloaking());
         }
+    }
+
+    // a general method to count down time
+    private bool CountdownTime(ref float timer)
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    /////// COROUTINES ///////
+    // an enumerator to time cloaking
+    private IEnumerator CTimeCloaking()
+    {
+        float cloakTimer = cloakTime;
+
+        while (!CountdownTime(ref cloakTimer))
+        {
+            yield return 0;
+        }
+
+        Color tempColor = sprRend.color;
+        tempColor.a = 1f;
+        sprRend.color = tempColor;
+
+        hide.IsCloaked = false;
+        GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().M_MaxSpeed = initialMaxSpeed;
+        yield break;
     }
 
     public byte GetIsSelected()

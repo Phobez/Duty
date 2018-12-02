@@ -27,7 +27,7 @@ public class Hide : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        isFacingRight = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().GetM_FacingRight();
+        isFacingRight = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().M_FacingRight;
 
         if (isFacingRight)
         {

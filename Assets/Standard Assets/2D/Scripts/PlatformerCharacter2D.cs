@@ -112,9 +112,15 @@ namespace UnityStandardAssets._2D
             transform.localScale = theScale;
         }
 
-        public bool GetM_FacingRight()
+        /////// PROPERTIES ///////
+        public bool M_FacingRight
         {
-            return m_FacingRight;
+            get; set;
+        }
+
+        public float M_MaxSpeed
+        {
+            get { return m_MaxSpeed; } set { this.m_MaxSpeed = value; }
         }
     }
 }
