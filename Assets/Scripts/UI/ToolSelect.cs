@@ -20,6 +20,7 @@ public class ToolSelect : MonoBehaviour {
 
     public float cloakTime;
     public float cloakedMaxSpeed;
+    public float stunBombRadius;
     private float cloakTimer;
     private float initialMaxSpeed;
 
@@ -45,7 +46,7 @@ public class ToolSelect : MonoBehaviour {
 
         hasUsedCloakingDevice = false;
 
-        SetIsSelected(1);
+        IsSelected = (byte) 1;
     }
 	
 	// Update is called once per frame
@@ -63,17 +64,15 @@ public class ToolSelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SetIsSelected(1);
-            Debug.Log("Skill 1 selected!");
+            IsSelected = (byte) 1;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SetIsSelected(2);
-            Debug.Log("Skill 2 selected!");
+            IsSelected = (byte) 2;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SetIsSelected(3);
+            IsSelected = (byte) 3;
         }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -81,37 +80,39 @@ public class ToolSelect : MonoBehaviour {
         }
     }
 
+    // a method to use selected tool
     private void useTool()
     {
         switch (isSelected)
         {
             case 1:
-                Skill1();
+                ShootDart();
                 break;
             case 2:
-                Skill2();
+                Cloak();
                 break;
             case 3:
-                Debug.Log("SKILL 3");
+                ThrowStunBomb();
                 break;
         }
     }
 
-    void Skill1()
+    // a method to shoot a dart
+    private void ShootDart()
     {
         anim.SetBool("Dart", true);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 3.0f, enemyLayer);
 
         if (hit && darts > 0)
         {
-            EnemyAI enemy = hit.transform.gameObject.GetComponent<EnemyAI>();
-            enemy.CurrState = EnemyAI.EnemyState.ASLEEP;
+            hit.collider.SendMessage("Sleep");
             darts--;
         }
         anim.SetBool("Dart", false);
     }
 
-    void Skill2()
+    // a method to use cloaking device
+    private void Cloak()
     {
         if (!hasUsedCloakingDevice)
         {
@@ -125,6 +126,17 @@ public class ToolSelect : MonoBehaviour {
             GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().M_MaxSpeed = cloakedMaxSpeed;
 
             StartCoroutine(CTimeCloaking());
+        }
+    }
+
+    // a method to use stun bomb
+    private void ThrowStunBomb()
+    {
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, stunBombRadius, LayerMask.GetMask("Enemy"));
+
+        foreach (Collider2D enemy in enemies)
+        {
+            enemy.SendMessage("Sleep");
         }
     }
 
@@ -162,29 +174,32 @@ public class ToolSelect : MonoBehaviour {
         yield break;
     }
 
-    public byte GetIsSelected()
-    {
-        return isSelected;
-    }
-
-    public void SetIsSelected(byte isSelected)
-    {
-        if (isSelected >= 1 && isSelected <= 4)
-        {
-            this.isSelected = isSelected;
-        }
-        else
-        {
-            Debug.Log("CANNOT SET IS SELECTED: INVALID INPUT");
-        }
-    }
-
     /////// PROPERTIES ///////
     public byte Darts
     {
         get
         {
             return darts;
+        }
+    }
+
+    public byte IsSelected
+    {
+        get
+        {
+            return isSelected;
+        }
+        set
+        {
+            if (this.isSelected >= 1 && this.isSelected <= 3)
+            {
+                this.isSelected = value;
+            }
+            else
+            {
+                this.isSelected = (byte) 1;
+                Debug.Log("ERROR: INVALID INPUT");
+            }
         }
     }
 }

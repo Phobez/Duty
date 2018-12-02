@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: 0
   patrolType: 2
+  levelStats: {fileID: 0}
   patrolStandTime: 3
   speed: 4
   patrolOffset: 5

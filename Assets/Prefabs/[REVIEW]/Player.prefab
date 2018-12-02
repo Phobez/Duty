@@ -223,6 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5655216ef1aae1243a6a8fd077db102e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloakTime: 0
+  cloakedMaxSpeed: 0
+  stunBombRadius: 0
   darts: 3
 --- !u!114 &114877673089291460
 MonoBehaviour:

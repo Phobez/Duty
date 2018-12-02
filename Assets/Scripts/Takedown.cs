@@ -46,8 +46,7 @@ public class Takedown : MonoBehaviour {
             {
                 if (CanTakedown(hit) && !isHiding && !hasTakendown)
                 {
-                    Debug.Log("TIMER START");
-                    Destroy(hit.transform.gameObject);
+                    hit.collider.SendMessage("Die");
                     hasTakendown = true;
                 }
             }

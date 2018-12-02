@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour {
 
     public PatrolType patrolType; // default value is BIDIR
 
+    public LevelStats levelStats;
+
     private Animator anim;
 
     private SpriteRenderer sprRend;
@@ -238,6 +240,19 @@ public class EnemyAI : MonoBehaviour {
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
+    }
+
+    // a method to make enemy fall asleep
+    private void Sleep()
+    {
+        CurrState = EnemyState.ASLEEP;
+    }
+    
+    // a method to handle enemy death
+    private void Die()
+    {
+        levelStats.kills++;
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

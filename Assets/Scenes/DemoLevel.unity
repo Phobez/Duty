@@ -2035,6 +2035,11 @@ Prefab:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114859394707149786, guid: a3388c0edc106b74db71d8de22527c8f,
+        type: 2}
+      propertyPath: stunBombRadius
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3388c0edc106b74db71d8de22527c8f, type: 2}
   m_IsPrefabAsset: 0
