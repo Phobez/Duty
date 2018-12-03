@@ -21,7 +21,6 @@ public class ToolSelect : MonoBehaviour {
     public float cloakTime;
     public float cloakedMaxSpeed;
     public float stunBombRadius;
-    private float cloakTimer;
     private float initialMaxSpeed;
 
     public byte darts = 1;
@@ -41,8 +40,6 @@ public class ToolSelect : MonoBehaviour {
         hide = GetComponent<Hide>();
 
         enemyLayer = LayerMask.GetMask("Enemy");
-
-        cloakTimer = cloakTime;
 
         hasUsedCloakingDevice = false;
 
@@ -105,7 +102,10 @@ public class ToolSelect : MonoBehaviour {
 
         if (hit && darts > 0)
         {
-            hit.collider.SendMessage("Sleep");
+            if (!hit.collider.gameObject.GetComponent<EnemyAI>().isJuggernaut)
+            {
+                hit.collider.SendMessage("Sleep");
+            }
             darts--;
         }
         anim.SetBool("Dart", false);
@@ -198,7 +198,7 @@ public class ToolSelect : MonoBehaviour {
             else
             {
                 this.isSelected = (byte) 1;
-                Debug.Log("ERROR: INVALID INPUT");
+                // Debug.Log("ERROR: INVALID INPUT");
             }
         }
     }

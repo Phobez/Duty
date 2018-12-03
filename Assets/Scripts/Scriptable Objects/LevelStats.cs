@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 [CreateAssetMenu()]
 public class LevelStats : ScriptableObject {
-
-    public int kills;
-
+    [NonSerialized] public int kills;
+    [NonSerialized] public float levelTime;
 }

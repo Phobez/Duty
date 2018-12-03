@@ -28,8 +28,8 @@ public class DemoLevelManager : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
-        Debug.Log("Demo Level: " + RespawnData.HasRestarted);
-        Debug.Log("Demo Level: " + RespawnData.CurrStage);
+        // Debug.Log("Demo Level: " + RespawnData.HasRestarted);
+        // Debug.Log("Demo Level: " + RespawnData.CurrStage);
 
         Physics2D.IgnoreLayerCollision(8, 10);
 

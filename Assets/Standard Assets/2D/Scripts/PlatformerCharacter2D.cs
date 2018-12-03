@@ -115,7 +115,14 @@ namespace UnityStandardAssets._2D
         /////// PROPERTIES ///////
         public bool M_FacingRight
         {
-            get; set;
+            get
+            {
+                return m_FacingRight;
+            }
+            set
+            {
+                this.m_FacingRight = value;
+            }
         }
 
         public float M_MaxSpeed

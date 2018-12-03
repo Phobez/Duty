@@ -33,7 +33,7 @@ public static class RespawnData {
         }
         set
         {
-            Debug.Log("Has Restarted value modified");
+            // Debug.Log("Has Restarted value modified");
             hasRestarted = value;
         }
     }

@@ -41,6 +41,7 @@ public class EnemyAI : MonoBehaviour {
     private int playerLayer;
 
     public bool isFacingRight = true; // default value is facing right
+    public bool isJuggernaut;
 
 	// Use this for initialization
 	void Start () {

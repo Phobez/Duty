@@ -5,13 +5,38 @@ using UnityEngine.SceneManagement;
 
 public class ButtonScripts : MonoBehaviour {
 
-    public GameObject tutorialPanel;
+    // public GameObject tutorialPanel;
 
     public void Play()
     {
         GameManager.Instance.Playing(true);
         RespawnData.Reset();
         SceneManager.LoadScene("DemoLevel");
+    }
+
+    public void Chapters()
+    {
+        SceneManager.LoadScene("Chapters");
+    }
+
+    public void SelectChapter(string chapterName)
+    {
+        SceneManager.LoadScene(chapterName);
+    }
+
+    public void ToggleTakedownMode()
+    {
+        switch (PlayerPrefs.GetInt("Takedown"))
+        {
+            case 0:
+                PlayerPrefs.SetInt("Takedown", 1);
+                break;
+            case 1:
+                PlayerPrefs.SetInt("Takedown", 0);
+                break;
+        }
+
+        Debug.Log(PlayerPrefs.GetInt("Takedown"));
     }
 
     public void Exit()
@@ -29,7 +54,7 @@ public class ButtonScripts : MonoBehaviour {
     public void TryAgain()
     {
         RespawnData.HasRestarted = true;
-        Debug.Log("Try Again: " + RespawnData.HasRestarted);
+        // Debug.Log("Try Again: " + RespawnData.HasRestarted);
         GameManager.Instance.Playing(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -46,6 +71,7 @@ public class ButtonScripts : MonoBehaviour {
         GameManager.Instance.Pause(false);
     }
 
+    /*
     public void HowToPlay()
     {
         tutorialPanel.SetActive(true);
@@ -55,4 +81,5 @@ public class ButtonScripts : MonoBehaviour {
     {
         tutorialPanel.SetActive(false);
     }
+    */
 }

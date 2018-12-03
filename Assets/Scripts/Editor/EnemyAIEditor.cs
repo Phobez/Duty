@@ -6,9 +6,11 @@ using UnityEditor;
 [CustomEditor(typeof(EnemyAI))]
 [CanEditMultipleObjects]
 public class EnemyAIEditor : Editor {
+    SerializedProperty levelStats;
     SerializedProperty initialState;
     SerializedProperty patrolType;
     SerializedProperty isFacingRight;
+    SerializedProperty isJuggernaut;
     SerializedProperty patrolOffset;
     SerializedProperty patrolStandTime;
     SerializedProperty speed;
@@ -20,9 +22,11 @@ public class EnemyAIEditor : Editor {
 
     private void OnEnable()
     {
+        levelStats = serializedObject.FindProperty("levelStats");
         initialState = serializedObject.FindProperty("initialState");
         patrolType = serializedObject.FindProperty("patrolType");
         isFacingRight = serializedObject.FindProperty("isFacingRight");
+        isJuggernaut = serializedObject.FindProperty("isJuggernaut");
         patrolOffset = serializedObject.FindProperty("patrolOffset");
         patrolStandTime = serializedObject.FindProperty("patrolStandTime");
         speed = serializedObject.FindProperty("speed");
@@ -34,6 +38,7 @@ public class EnemyAIEditor : Editor {
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+        EditorGUILayout.PropertyField(levelStats);
         EditorGUILayout.PropertyField(initialState);
         
         // if initial state is patrol
@@ -43,6 +48,7 @@ public class EnemyAIEditor : Editor {
         }
 
         EditorGUILayout.PropertyField(isFacingRight);
+        EditorGUILayout.PropertyField(isJuggernaut);
 
         showSettings = EditorGUILayout.Foldout(showSettings, "Settings");
 

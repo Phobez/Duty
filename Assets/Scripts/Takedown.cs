@@ -6,7 +6,7 @@ public class Takedown : MonoBehaviour {
 
     private Vector2 currDir;
 
-    public float takedownCooldown = 2.0f;
+    public float takedownCooldown;
     private float takedownTimer;
 
     private int enemyLayer;
@@ -38,12 +38,15 @@ public class Takedown : MonoBehaviour {
             currDir = Vector2.left;
         }
 
+        Debug.Log(isFacingRight);
+
         if (Input.GetKeyDown(KeyCode.C))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 0.5f, enemyLayer);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 1.0f, enemyLayer);
 
             if(hit)
             {
+                Debug.Log(hit.collider.gameObject.name);
                 if (CanTakedown(hit) && !isHiding && !hasTakendown)
                 {
                     hit.collider.SendMessage("Die");
@@ -70,6 +73,10 @@ public class Takedown : MonoBehaviour {
         
         if (isFacingRight == isTargetFacingRight)
         {
+            if (hit.transform.gameObject.GetComponent<EnemyAI>().isJuggernaut)
+            {
+                return false;
+            }
             return true;
         }
 

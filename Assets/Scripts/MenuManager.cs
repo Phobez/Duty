@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 
     public GameObject gameOverPanel;
     public GameObject pausePanel;
     public GameObject victoryPanel;
+
+    public Text kills;
+    public Text time;
+
+    public LevelStats levelStats;
 
     private void Awake()
     {
@@ -26,6 +32,9 @@ public class MenuManager : MonoBehaviour {
         switch (GameManager.Instance.CurrGameState)
         {
             case GameManager.GameState.VICTORY:
+                kills.text = levelStats.kills.ToString();
+                time.text = levelStats.levelTime.ToString();
+
                 gameOverPanel.SetActive(false);
                 pausePanel.SetActive(false);
                 victoryPanel.SetActive(true);

@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: 0
   patrolType: 2
-  levelStats: {fileID: 0}
+  levelStats: {fileID: 11400000, guid: a0f884ade1d6efa40b33b9124dcd778d, type: 2}
   patrolStandTime: 3
   speed: 4
   patrolOffset: 5
@@ -186,6 +186,7 @@ MonoBehaviour:
   chaseRange: 7
   guardRange: 5
   isFacingRight: 1
+  isJuggernaut: 0
 --- !u!212 &212326156757859798
 SpriteRenderer:
   m_ObjectHideFlags: 1
