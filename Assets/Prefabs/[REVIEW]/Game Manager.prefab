@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4608912578833112}
   - component: {fileID: 114518667591408410}
   - component: {fileID: 114156130129242250}
+  - component: {fileID: 114098511904893210}
+  - component: {fileID: 114919731138563818}
   m_Layer: 10
   m_Name: Game Manager
   m_TagString: Untagged
@@ -41,6 +43,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114098511904893210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881458332834062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df2bd2a6c70dab4793a284d1ec33337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelStats: {fileID: 11400000, guid: a0f884ade1d6efa40b33b9124dcd778d, type: 2}
 --- !u!114 &114156130129242250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,9 +70,9 @@ MonoBehaviour:
   Stage2Panel: {fileID: 0}
   Stage3Panel: {fileID: 0}
   truck: {fileID: 0}
-  Stage1Pos: {x: 0, y: 0, z: 0}
+  Stage1Pos: {x: -20, y: 4.5, z: 0}
   Stage2Pos: {x: 51, y: 1, z: 0}
-  Stage3Pos: {x: 151, y: 1, z: 0}
+  Stage3Pos: {x: 121.5, y: 1, z: 0}
   currStage: 2
 --- !u!114 &114518667591408410
 MonoBehaviour:
@@ -71,4 +85,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a523e95b25e5341aaba0cab40d680a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialPanel: {fileID: 0}
+--- !u!114 &114919731138563818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881458332834062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9613a541293f0c4ebbc6972140d67a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 0}
+  pausePanel: {fileID: 0}
+  victoryPanel: {fileID: 0}
+  kills: {fileID: 0}
+  time: {fileID: 0}
+  levelStats: {fileID: 11400000, guid: a0f884ade1d6efa40b33b9124dcd778d, type: 2}
