@@ -1,14 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class VictoryPoint : MonoBehaviour {
+public class Hideable : MonoBehaviour {
+
+    public GameObject e;
+
+    public void Start()
+    {
+        e.SetActive(false);
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.Victory(true);
+            e.SetActive(true);
         }
     }
 }
