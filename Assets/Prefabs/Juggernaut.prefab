@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1749017402633638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72.92, y: 0.91, z: 0.5527344}
+  m_LocalPosition: {x: 15.26645, y: -30.682287, z: 0.5527344}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4545080934027850}
@@ -177,15 +177,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: 0
-  patrolType: 2
+  patrolType: 1
   levelStats: {fileID: 11400000, guid: a0f884ade1d6efa40b33b9124dcd778d, type: 2}
-  patrolStandTime: 3
+  patrolStandTime: 6
   speed: 4
   patrolOffset: 5
   patrolRange: 5
   chaseRange: 7
   guardRange: 5
-  isFacingRight: 1
+  isFacingRight: 0
   isJuggernaut: 1
 --- !u!212 &212558058779767226
 SpriteRenderer:
