@@ -11,7 +11,7 @@ public class ButtonScripts : MonoBehaviour {
     {
         GameManager.Instance.Playing(true);
         RespawnData.Reset();
-        SceneManager.LoadScene("DemoLevel");
+        SceneManager.LoadScene("Chapter1");
     }
 
     public void Chapters()

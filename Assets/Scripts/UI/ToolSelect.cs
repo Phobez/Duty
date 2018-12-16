@@ -110,6 +110,7 @@ public class ToolSelect : MonoBehaviour {
         if (hit && darts > 0)
         {
             audioSource.PlayOneShot(dartSound);
+
             if (!hit.collider.gameObject.GetComponent<EnemyAI>().isJuggernaut)
             {
                 hit.collider.SendMessage("Sleep");
