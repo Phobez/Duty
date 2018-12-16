@@ -38,8 +38,6 @@ public class Takedown : MonoBehaviour {
             currDir = Vector2.left;
         }
 
-        Debug.Log(isFacingRight);
-
         if (Input.GetKeyDown(KeyCode.C))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, currDir, 1.0f, enemyLayer);

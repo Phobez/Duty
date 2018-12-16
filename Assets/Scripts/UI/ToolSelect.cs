@@ -23,7 +23,8 @@ public class ToolSelect : MonoBehaviour {
     public float stunBombRadius;
     private float initialMaxSpeed;
 
-    public byte darts = 1;
+    public byte darts;
+    public byte bombs;
     private byte isSelected;
 
     private bool isFacingRight;
@@ -132,11 +133,16 @@ public class ToolSelect : MonoBehaviour {
     // a method to use stun bomb
     private void ThrowStunBomb()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, stunBombRadius, LayerMask.GetMask("Enemy"));
-
-        foreach (Collider2D enemy in enemies)
+        if (bombs > 0)
         {
-            enemy.SendMessage("Sleep");
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, stunBombRadius, LayerMask.GetMask("Enemy"));
+
+            foreach (Collider2D enemy in enemies)
+            {
+                enemy.SendMessage("Sleep");
+            }
+
+            bombs--;
         }
     }
 
@@ -200,6 +206,14 @@ public class ToolSelect : MonoBehaviour {
                 this.isSelected = (byte) 1;
                 // Debug.Log("ERROR: INVALID INPUT");
             }
+        }
+    }
+
+    public bool HasUsedCloakingDevice
+    {
+        get
+        {
+            return hasUsedCloakingDevice;
         }
     }
 }
