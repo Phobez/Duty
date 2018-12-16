@@ -17,6 +17,7 @@ public class EnemyAIEditor : Editor {
     SerializedProperty patrolRange;
     SerializedProperty chaseRange;
     SerializedProperty guardRange;
+    SerializedProperty detectedSound;
 
     public bool showSettings = false;
 
@@ -33,6 +34,7 @@ public class EnemyAIEditor : Editor {
         patrolRange = serializedObject.FindProperty("patrolRange");
         chaseRange = serializedObject.FindProperty("chaseRange");
         guardRange = serializedObject.FindProperty("guardRange");
+        detectedSound = serializedObject.FindProperty("detectedSound");
     }
 
     public override void OnInspectorGUI()
@@ -61,6 +63,8 @@ public class EnemyAIEditor : Editor {
             EditorGUILayout.PropertyField(chaseRange);
             EditorGUILayout.PropertyField(guardRange);
         }
+
+        EditorGUILayout.PropertyField(detectedSound);
 
         serializedObject.ApplyModifiedProperties();
     }

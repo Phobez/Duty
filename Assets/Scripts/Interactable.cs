@@ -7,8 +7,6 @@ public class Interactable : MonoBehaviour {
 
     public GameObject e;
 
-    private bool foundPlayer = false;
-
     public void Start()
     {
         e.SetActive(false);

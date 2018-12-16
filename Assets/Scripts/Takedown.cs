@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Takedown : MonoBehaviour {
 
+    public AudioClip stabSound;
+
+    private AudioSource audioSource;
+
     private Vector2 currDir;
 
     public float takedownCooldown;
@@ -17,6 +21,8 @@ public class Takedown : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        audioSource = GetComponent<AudioSource>();
+
         enemyLayer = LayerMask.GetMask("Enemy");
 
         takedownTimer = takedownCooldown;
@@ -47,6 +53,7 @@ public class Takedown : MonoBehaviour {
                 Debug.Log(hit.collider.gameObject.name);
                 if (CanTakedown(hit) && !isHiding && !hasTakendown)
                 {
+                    audioSource.PlayOneShot(stabSound);
                     hit.collider.SendMessage("Die");
                     hasTakendown = true;
                 }

@@ -10,6 +10,10 @@ public class ToolSelect : MonoBehaviour {
      * 2. CLOAKING DEVICE
      */
 
+    public AudioClip dartSound;
+
+    private AudioSource audioSource;
+
     private Animator anim;
 
     private SpriteRenderer sprRend;
@@ -34,6 +38,8 @@ public class ToolSelect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
+        audioSource = GetComponent<AudioSource>();
+
         anim = GetComponent<Animator>();
 
         sprRend = GetComponent<SpriteRenderer>();
@@ -103,6 +109,7 @@ public class ToolSelect : MonoBehaviour {
 
         if (hit && darts > 0)
         {
+            audioSource.PlayOneShot(dartSound);
             if (!hit.collider.gameObject.GetComponent<EnemyAI>().isJuggernaut)
             {
                 hit.collider.SendMessage("Sleep");

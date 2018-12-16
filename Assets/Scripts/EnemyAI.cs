@@ -17,6 +17,10 @@ public class EnemyAI : MonoBehaviour {
 
     public PatrolType patrolType; // default value is BIDIR
 
+    public AudioClip detectedSound;
+
+    private AudioSource audioSource;
+
     public LevelStats levelStats;
 
     private Animator anim;
@@ -42,9 +46,12 @@ public class EnemyAI : MonoBehaviour {
 
     public bool isFacingRight = true; // default value is facing right
     public bool isJuggernaut;
+    private bool hasSounded = false;
 
 	// Use this for initialization
 	void Start () {
+        audioSource = GetComponent<AudioSource>();
+
         anim = GetComponent<Animator>();
 
         sprRend = GetComponent<SpriteRenderer>();
@@ -72,6 +79,16 @@ public class EnemyAI : MonoBehaviour {
         }
 
         ManageState();
+
+        if (CurrState == EnemyState.CHASE && !hasSounded)
+        {
+            audioSource.PlayOneShot(detectedSound);
+            hasSounded = true;
+        }
+        else if (CurrState != EnemyState.CHASE)
+        {
+            hasSounded = false;
+        }
 	}
 
     // a method to run the current state
