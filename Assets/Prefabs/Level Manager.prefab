@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4569355995290960}
   - component: {fileID: 114196193467555706}
   - component: {fileID: 82694167219588498}
+  - component: {fileID: 114125456597209194}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -136,6 +137,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114125456597209194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496640642899246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a523e95b25e5341aaba0cab40d680a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114196193467555706
 MonoBehaviour:
   m_ObjectHideFlags: 1
