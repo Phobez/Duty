@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour {
 
     private void Start()
     {
+        Physics2D.IgnoreLayerCollision(8, 10);
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Takedown>();
         initialTakedownCooldown = player.takedownCooldown;
 

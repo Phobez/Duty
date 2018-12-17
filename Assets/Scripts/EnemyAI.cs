@@ -55,7 +55,7 @@ public class EnemyAI : MonoBehaviour {
         anim = GetComponent<Animator>();
 
         sprRend = GetComponent<SpriteRenderer>();
-
+        
         originPos = transform.position;
 
         CurrState = initialState;
