@@ -1120,7 +1120,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4987668549622140, guid: a0613b958829e6a4790a7803bb7a7ac9, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1409596452537770, guid: a0613b958829e6a4790a7803bb7a7ac9, type: 2}
       propertyPath: m_Name
@@ -1868,7 +1868,7 @@ GameObject:
   - component: {fileID: 396883109}
   - component: {fileID: 396883110}
   - component: {fileID: 396883111}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: crate_single (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2638,6 +2638,7 @@ GameObject:
   - component: {fileID: 564933172}
   - component: {fileID: 564933171}
   - component: {fileID: 564933170}
+  - component: {fileID: 564933173}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2705,6 +2706,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564933173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564933169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653e4f2e1417400418632d62a1e5d438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 1
 --- !u!1001 &565497415
 Prefab:
   m_ObjectHideFlags: 0
@@ -5046,7 +5059,7 @@ GameObject:
   - component: {fileID: 1402127445}
   - component: {fileID: 1402127447}
   - component: {fileID: 1402127446}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: rooftop 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5921,7 +5934,7 @@ GameObject:
   - component: {fileID: 1636772320}
   - component: {fileID: 1636772321}
   - component: {fileID: 1636772322}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: rooftop 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6250,7 +6263,7 @@ GameObject:
   - component: {fileID: 1713650785}
   - component: {fileID: 1713650784}
   - component: {fileID: 1713650783}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: rooftop 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6603,7 +6616,7 @@ GameObject:
   - component: {fileID: 1769376212}
   - component: {fileID: 1769376213}
   - component: {fileID: 1769376214}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: crate_single (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

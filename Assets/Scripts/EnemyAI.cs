@@ -33,6 +33,8 @@ public class EnemyAI : MonoBehaviour {
 
     private RaycastHit2D hit;
 
+    private GameObject target;
+
     public float patrolStandTime = 3.0f; // default value is 3s
     public float speed = 5.0f; // default value is 5.0
     public float patrolOffset = 5.0f; // default value is 5.0
@@ -182,7 +184,7 @@ public class EnemyAI : MonoBehaviour {
     // a method for enemy chase
     private void Chase()
     {
-        if (!FoundPlayer())
+        if (Mathf.Abs(transform.position.x - target.transform.position.x) > chaseRange)
         {
             CurrState = initialState;
             anim.SetBool("Is Chasing", false);
@@ -192,7 +194,7 @@ public class EnemyAI : MonoBehaviour {
         else
         {
             Vector3 currPos = transform.position;
-            Vector3 targetPos = hit.transform.position;
+            Vector3 targetPos = target.transform.position;
 
             if (Mathf.Abs(targetPos.x - currPos.x) <= chaseRange)
             {
@@ -209,6 +211,13 @@ public class EnemyAI : MonoBehaviour {
                 Move();
             }
         }
+    }
+
+    // an overload of the chase method to chase a specific gameobject
+    public void ChaseTarget(GameObject player)
+    {
+        CurrState = EnemyState.CHASE;
+        target = player;
     }
 
     // a method for enemy guard
@@ -231,12 +240,12 @@ public class EnemyAI : MonoBehaviour {
             // if enemy is chasing, hiding will not save player
             if (currState == EnemyState.CHASE)
             {
-                hit = tempHit;
+                target = tempHit.collider.gameObject;
                 return true;
             }
             else if (!tempHit.transform.gameObject.GetComponent<Hide>().IsHiding)
             {
-                hit = tempHit;
+                target = tempHit.collider.gameObject;
                 return true;
             }
         }
