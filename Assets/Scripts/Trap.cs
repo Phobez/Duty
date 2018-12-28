@@ -8,23 +8,40 @@ public class Trap : MonoBehaviour {
 
     public TrapType trapType;
 
+    private bool on = true;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (on)
         {
-            if (trapType == TrapType.KILL)
+            if (collision.gameObject.CompareTag("Player"))
             {
-                GameManager.Instance.Defeat(true);
-            }
-            else if (trapType == TrapType.ALARM)
-            {
-                Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position, new Vector2(14, 1), 0, LayerMask.GetMask("Enemy"));
-
-                foreach (Collider2D enemy in enemies)
+                if (trapType == TrapType.KILL)
                 {
-                    enemy.SendMessage("ChaseTarget", collision.gameObject);
+                    GameManager.Instance.Defeat(true);
+                }
+                else if (trapType == TrapType.ALARM)
+                {
+                    Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position, new Vector2(14, 1), 0, LayerMask.GetMask("Enemy"));
+
+                    foreach (Collider2D enemy in enemies)
+                    {
+                        enemy.SendMessage("ChaseTarget", collision.gameObject);
+                    }
                 }
             }
+        }
+    }
+
+    public bool On
+    {
+        get
+        {
+            return on;
+        }
+        set
+        {
+            this.on = value;
         }
     }
 }
