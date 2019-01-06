@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Game : MonoBehaviour {
+public class Game {
 
     public static Game current;
 

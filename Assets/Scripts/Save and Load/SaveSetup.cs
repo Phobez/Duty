@@ -12,11 +12,13 @@ public class SaveSetup : MonoBehaviour {
         {
             SaveLoad.Load();
             Game.current = SaveLoad.savedGame;
+            Debug.Log("Existing save loaded!");
         }
         else
         {
             Game.current = new Game();
             SaveLoad.Save();
+            Debug.Log("New save made!");
         }
     }
 }
