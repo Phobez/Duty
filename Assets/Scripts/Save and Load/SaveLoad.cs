@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SaveLoad : MonoBehaviour {
 
-    public static Game savedGame = new Game();
+    public static Game savedGame;
 
 	// a method to save game
     public static void Save()
