@@ -108,6 +108,7 @@ public class EnemyAI : MonoBehaviour {
                 Invoke("Guard", 0.5f);
                 break;
             case EnemyState.ASLEEP:
+                anim.SetBool("Is Asleep", true);
                 break;
         }
     }

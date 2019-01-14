@@ -8,6 +8,8 @@ public class Transporter : MonoBehaviour, IInteractable<GameObject> {
 
     private Vector3 targetCoords;
 
+    public bool automatic = false;
+
     private void Start()
     {
         targetCoords = destination.transform.position;
@@ -21,5 +23,13 @@ public class Transporter : MonoBehaviour, IInteractable<GameObject> {
     public Vector3 GetTargetCoords()
     {
         return targetCoords;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (automatic && collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.transform.position = targetCoords;
+        }
     }
 }

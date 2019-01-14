@@ -8,7 +8,23 @@ public class Trap : MonoBehaviour {
 
     public TrapType trapType;
 
+    public Sprite alarmSprite;
+    public Sprite killSprite;
+    public Sprite offSprite;
+
     private bool on = true;
+
+    private void Start()
+    {
+        if (trapType == TrapType.KILL)
+        {
+            GetComponent<SpriteRenderer>().sprite = killSprite;
+        }
+        else if (trapType == TrapType.ALARM)
+        {
+            GetComponent<SpriteRenderer>().sprite = alarmSprite;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,6 +58,10 @@ public class Trap : MonoBehaviour {
         set
         {
             this.on = value;
+            if (value == false)
+            {
+                GetComponent<SpriteRenderer>().sprite = offSprite;
+            }
         }
     }
 }

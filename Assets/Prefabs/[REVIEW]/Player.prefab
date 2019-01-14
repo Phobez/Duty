@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578371663640602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4591570290488366}
@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1897003117693454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4591570290488366}
@@ -321,11 +321,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dartSound: {fileID: 8300000, guid: 25b345f4aa59c4643b42cbf3acc1da12, type: 3}
-  cloakTime: 0
-  cloakedMaxSpeed: 0
-  stunBombRadius: 0
-  darts: 3
-  bombs: 0
+  cloakTime: 5
+  cloakedMaxSpeed: 3
+  stunBombRadius: 5
+  darts: 1
+  bombs: 1
 --- !u!114 &114877673089291460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -372,7 +372,7 @@ SpriteRenderer:
   m_SortingLayerID: 1287307173
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c626c273349214049af7dbcdb5b02c24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c25c4d66d245cde45b6e015a16c5be94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
