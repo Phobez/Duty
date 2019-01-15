@@ -8,6 +8,8 @@ public class Takedown : MonoBehaviour {
 
     private AudioSource audioSource;
 
+    private Animator anim;
+
     private Vector2 currDir;
 
     public float takedownCooldown;
@@ -22,6 +24,8 @@ public class Takedown : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();
+
+        anim = GetComponent<Animator>();
 
         enemyLayer = LayerMask.GetMask("Enemy");
 
@@ -54,6 +58,7 @@ public class Takedown : MonoBehaviour {
                 if (CanTakedown(hit) && !isHiding && !hasTakendown)
                 {
                     audioSource.PlayOneShot(stabSound);
+                    anim.SetBool("Takedown", true);
                     hit.collider.SendMessage("Die");
                     hasTakendown = true;
                 }

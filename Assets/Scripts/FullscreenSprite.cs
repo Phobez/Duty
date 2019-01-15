@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FullscreenSprite : MonoBehaviour {
 
-    private void Awake()
+    private void Start()
     {
         SpriteRenderer sprRend = GetComponent<SpriteRenderer>();
 
