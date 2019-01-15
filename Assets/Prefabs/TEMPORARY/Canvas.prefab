@@ -653,6 +653,7 @@ GameObject:
   - component: {fileID: 223124812134176298}
   - component: {fileID: 114841866498279442}
   - component: {fileID: 114055116169188352}
+  - component: {fileID: 114216566645859154}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1977,6 +1978,23 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: It seems I got the wrong key. Better look upstairs again.
+--- !u!114 &114216566645859154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840952122995998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9613a541293f0c4ebbc6972140d67a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 0}
+  pausePanel: {fileID: 0}
+  victoryPanel: {fileID: 0}
+  kills: {fileID: 0}
+  time: {fileID: 0}
+  levelStats: {fileID: 0}
 --- !u!114 &114224091386562230
 MonoBehaviour:
   m_ObjectHideFlags: 1
