@@ -11,11 +11,11 @@ public class Game {
 
     public Game()
     {
-        levels = new bool[5];
+        levels = new bool[4];
 
         levels[0] = true;
 
-        for (int i = 1; i < 5; i++)
+        for (int i = 1; i < 4; i++)
         {
             levels[i] = false;
         }
