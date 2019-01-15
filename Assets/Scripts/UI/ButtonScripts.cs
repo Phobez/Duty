@@ -71,6 +71,11 @@ public class ButtonScripts : MonoBehaviour {
         GameManager.Instance.Pause(false);
     }
 
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     /*
     public void HowToPlay()
     {

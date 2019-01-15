@@ -11,6 +11,7 @@ public class ToolSelect : MonoBehaviour {
      */
 
     public AudioClip dartSound;
+    public AudioClip bombSound;
 
     private AudioSource audioSource;
 
@@ -144,6 +145,8 @@ public class ToolSelect : MonoBehaviour {
         if (bombs > 0)
         {
             Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, stunBombRadius, LayerMask.GetMask("Enemy"));
+
+            audioSource.PlayOneShot(bombSound);
 
             foreach (Collider2D enemy in enemies)
             {
