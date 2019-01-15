@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1171582466676002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.533, y: -0.02, z: 0}
+  m_LocalPosition: {x: 19.165628, y: -20.32381, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4504343863553426}
@@ -274,6 +274,7 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 2048
+  jumpSound: {fileID: 8300000, guid: 50bf4ff4c279ae744a510e0b1ff807f5, type: 3}
 --- !u!114 &114479326389169038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c04f5904bbaa95478897a1223d29279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabSound: {fileID: 8300000, guid: 74cdaa0aae35e3d428be021e7bc3e5bf, type: 3}
+  stabSound: {fileID: 8300000, guid: 028dadf3d5a0d1e479388fc64f64ee01, type: 3}
   takedownCooldown: 2
 --- !u!114 &114774089770320848
 MonoBehaviour:
@@ -323,6 +324,7 @@ MonoBehaviour:
   dartSound: {fileID: 8300000, guid: d70f82594358675448aa15bd038db585, type: 3}
   bombSound: {fileID: 8300000, guid: ace1c2dbf038b63459a91a0b90b25d9a, type: 3}
   cloakSound: {fileID: 8300000, guid: 72715fe153ae3d54fa71e95a05215ab0, type: 3}
+  hitSound: {fileID: 0}
   cloakTime: 5
   cloakedMaxSpeed: 3
   stunBombRadius: 5
