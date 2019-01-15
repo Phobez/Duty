@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1358244151398326
 GameObject:
   m_ObjectHideFlags: 1
@@ -347,7 +347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1562510038449246
 GameObject:
   m_ObjectHideFlags: 1
@@ -641,7 +641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1840952122995998
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1885624056811436
 GameObject:
   m_ObjectHideFlags: 1
@@ -1989,12 +1989,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9613a541293f0c4ebbc6972140d67a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 0}
-  pausePanel: {fileID: 0}
-  victoryPanel: {fileID: 0}
-  kills: {fileID: 0}
-  time: {fileID: 0}
-  levelStats: {fileID: 0}
+  gameOverPanel: {fileID: 1360636239280760}
+  pausePanel: {fileID: 1919370833283948}
+  victoryPanel: {fileID: 1597766804501036}
+  kills: {fileID: 114319350395068580}
+  time: {fileID: 114625907760531916}
+  levelStats: {fileID: 11400000, guid: a0f884ade1d6efa40b33b9124dcd778d, type: 2}
 --- !u!114 &114224091386562230
 MonoBehaviour:
   m_ObjectHideFlags: 1

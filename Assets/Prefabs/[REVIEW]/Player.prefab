@@ -328,7 +328,7 @@ MonoBehaviour:
   cloakTime: 5
   cloakedMaxSpeed: 3
   stunBombRadius: 5
-  darts: 1
+  darts: 2
   bombs: 1
 --- !u!114 &114877673089291460
 MonoBehaviour:
