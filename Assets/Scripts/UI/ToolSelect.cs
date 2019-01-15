@@ -96,10 +96,10 @@ public class ToolSelect : MonoBehaviour {
                 ShootDart();
                 break;
             case 2:
-                Cloak();
+                ThrowStunBomb();
                 break;
             case 3:
-                ThrowStunBomb();
+                Cloak();
                 break;
         }
     }
