@@ -10,7 +10,7 @@ public class TrapController : MonoBehaviour, IInteractable<GameObject> {
     public void Interact(GameObject obj)
     {
         Debug.Log("Called");
-        On = !On;
+        On = false;
     }
 
     public bool On
