@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1171582466676002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 4.5, z: 0}
+  m_LocalPosition: {x: 83.1, y: 1.4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4504343863553426}
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dartSound: {fileID: 8300000, guid: 25b345f4aa59c4643b42cbf3acc1da12, type: 3}
+  bombSound: {fileID: 8300000, guid: ace1c2dbf038b63459a91a0b90b25d9a, type: 3}
   cloakTime: 5
   cloakedMaxSpeed: 3
   stunBombRadius: 5
