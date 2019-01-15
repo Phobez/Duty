@@ -869,8 +869,8 @@ GameObject:
   - component: {fileID: 1503976878}
   - component: {fileID: 1503976877}
   - component: {fileID: 1503976876}
-  - component: {fileID: 1503976875}
   - component: {fileID: 1503976874}
+  - component: {fileID: 1503976875}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -977,8 +977,7 @@ AudioSource:
 --- !u!70 &1503976875
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 70434492588689022, guid: a3388c0edc106b74db71d8de22527c8f,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1503976873}
   m_Enabled: 1
@@ -987,8 +986,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04869318, y: -0.015111685}
-  m_Size: {x: 0.1487341, y: 0.46873426}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.21, y: 0.49}
   m_Direction: 0
 --- !u!114 &1503976876
 MonoBehaviour:

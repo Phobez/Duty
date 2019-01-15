@@ -20,13 +20,13 @@ public class Locking : MonoBehaviour {
 	void Start () {
         coll = GetComponent<Collider2D>();
 
-        coll.isTrigger = locked;
+        coll.isTrigger = !locked;
 	}
 
     // a method to unlock object
     public void Unlock()
     {
         locked = false;
-        coll.isTrigger = locked;
+        coll.isTrigger = !locked;
     }
 }
