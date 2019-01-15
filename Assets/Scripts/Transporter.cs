@@ -7,11 +7,16 @@ public class Transporter : MonoBehaviour, IInteractable<GameObject> {
     public GameObject destination;
 
     private Vector3 targetCoords;
+    private AudioSource audioSource;
+
+    public AudioClip sound;
 
     public bool automatic = false;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         targetCoords = destination.transform.position;
     }
 
@@ -29,6 +34,7 @@ public class Transporter : MonoBehaviour, IInteractable<GameObject> {
     {
         if (automatic && collision.gameObject.CompareTag("Player"))
         {
+            audioSource.PlayOneShot(sound);
             collision.gameObject.transform.position = targetCoords;
         }
     }

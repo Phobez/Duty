@@ -6,14 +6,22 @@ public class DoorLockController : MonoBehaviour {
 
     private Locking locking;
     private SpriteRenderer sprRend;
+    private AudioSource audioSource;
 
     public Sprite closed;
     public Sprite open;
+
+    public AudioClip openSound;
+
+    private bool hasSounded;
 
 	// Use this for initialization
 	void Start () {
         locking = GetComponent<Locking>();
         sprRend = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+
+        hasSounded = false;
 	}
 	
 	// Update is called once per frame
@@ -25,6 +33,11 @@ public class DoorLockController : MonoBehaviour {
         else
         {
             sprRend.sprite = open;
+            if (!hasSounded)
+            {
+                hasSounded = true;
+                audioSource.PlayOneShot(openSound);
+            }
         }
 	}
 }

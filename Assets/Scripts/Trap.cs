@@ -13,9 +13,12 @@ public class Trap : MonoBehaviour {
     public Sprite offSprite;
 
     private bool on = true;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         if (trapType == TrapType.KILL)
         {
             GetComponent<SpriteRenderer>().sprite = killSprite;
@@ -32,6 +35,7 @@ public class Trap : MonoBehaviour {
         {
             if (collision.gameObject.CompareTag("Player"))
             {
+                audioSource.Play();
                 if (trapType == TrapType.KILL)
                 {
                     GameManager.Instance.Defeat(true);
