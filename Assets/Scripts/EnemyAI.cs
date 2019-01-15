@@ -85,6 +85,8 @@ public class EnemyAI : MonoBehaviour {
         if (CurrState == EnemyState.CHASE && !hasSounded)
         {
             audioSource.PlayOneShot(detectedSound);
+
+            Debug.Log("Called!");
             hasSounded = true;
         }
         else if (CurrState != EnemyState.CHASE)

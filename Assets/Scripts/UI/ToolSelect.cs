@@ -12,6 +12,8 @@ public class ToolSelect : MonoBehaviour {
 
     public AudioClip dartSound;
     public AudioClip bombSound;
+    public AudioClip cloakSound;
+    public AudioClip hitSound;
 
     private AudioSource audioSource;
 
@@ -115,6 +117,7 @@ public class ToolSelect : MonoBehaviour {
             if (!hit.collider.gameObject.GetComponent<EnemyAI>().isJuggernaut)
             {
                 hit.collider.SendMessage("Sleep");
+                audioSource.PlayOneShot(hitSound);
             }
             darts--;
         }
@@ -132,6 +135,7 @@ public class ToolSelect : MonoBehaviour {
 
             hide.IsCloaked = true;
             hasUsedCloakingDevice = true;
+            audioSource.PlayOneShot(cloakSound);
             initialMaxSpeed = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().M_MaxSpeed;
             GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().M_MaxSpeed = cloakedMaxSpeed;
 
