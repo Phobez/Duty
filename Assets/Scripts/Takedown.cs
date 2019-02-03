@@ -79,6 +79,11 @@ public class Takedown : MonoBehaviour {
 
     private bool CanTakedown(RaycastHit2D hit)
     {
+        if (hit.transform.gameObject.GetComponent<EnemyAI>().CurrState == EnemyAI.EnemyState.ASLEEP)
+        {
+            return true;
+        }
+
         bool isTargetFacingRight = hit.transform.gameObject.GetComponent<EnemyAI>().isFacingRight;
         
         if (isFacingRight == isTargetFacingRight)

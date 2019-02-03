@@ -2716,6 +2716,10 @@ Prefab:
       propertyPath: lockedObject
       value: 
       objectReference: {fileID: 678109281}
+    - target: {fileID: 1274387337356374, guid: e30e070d7d64a46468468fc1798a7150, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30e070d7d64a46468468fc1798a7150, type: 2}
   m_IsPrefabAsset: 0
@@ -5558,6 +5562,10 @@ Prefab:
     - target: {fileID: 212391284591455592, guid: 5e0269f0f88514441bd7a1d58fead3e9,
         type: 2}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961182705431144, guid: 5e0269f0f88514441bd7a1d58fead3e9, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11161,6 +11169,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1961182705431144, guid: 5e0269f0f88514441bd7a1d58fead3e9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e0269f0f88514441bd7a1d58fead3e9, type: 2}
   m_IsPrefabAsset: 0
@@ -13661,6 +13673,10 @@ Prefab:
     - target: {fileID: 1274387337356374, guid: e30e070d7d64a46468468fc1798a7150, type: 2}
       propertyPath: m_Name
       value: Key For Locked Doors (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274387337356374, guid: e30e070d7d64a46468468fc1798a7150, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30e070d7d64a46468468fc1798a7150, type: 2}

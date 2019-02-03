@@ -287,7 +287,7 @@ public class EnemyAI : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (CurrState != EnemyState.ASLEEP && collision.gameObject.tag == "Player")
         {
             GameManager.Instance.Defeat(true);
         }

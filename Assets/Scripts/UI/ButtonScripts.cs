@@ -73,6 +73,7 @@ public class ButtonScripts : MonoBehaviour {
 
     public void LoadNextScene()
     {
+        GameManager.Instance.Playing(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
